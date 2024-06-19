@@ -135,7 +135,6 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
         questionVO.setUserVO(userVO);
         // 2. 已登录，获取用户点赞、收藏状态
         User loginUser = userService.getLoginUserPermitNull(request);
-
         return questionVO;
     }
 
@@ -165,7 +164,6 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
         questionVOPage.setRecords(questionVOList);
         return questionVOPage;
     }
-
 }
 
 
