@@ -1,11 +1,9 @@
 package com.yupi.yuoj.model.vo;
 
 import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.google.gson.Gson;
-import com.yupi.yuoj.model.dto.questionsubmit.JudgeInfo;
+import com.yupi.yuoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.yuoj.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
