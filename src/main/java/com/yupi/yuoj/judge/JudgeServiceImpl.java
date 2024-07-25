@@ -8,27 +8,19 @@ import com.yupi.yuoj.judge.codesandbox.CodeSandboxFactory;
 import com.yupi.yuoj.judge.codesandbox.CodeSandboxProxy;
 import com.yupi.yuoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.yupi.yuoj.judge.codesandbox.model.ExecuteCodeResponse;
-import com.yupi.yuoj.judge.strategy.DefaultJudgeStrategyImpl;
 import com.yupi.yuoj.judge.strategy.JudgeContext;
-import com.yupi.yuoj.judge.strategy.JudgeStrategy;
 import com.yupi.yuoj.model.dto.question.JudgeCase;
-import com.yupi.yuoj.model.dto.question.JudgeConfig;
-import com.yupi.yuoj.model.dto.questionsubmit.JudgeInfo;
+import com.yupi.yuoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.yuoj.model.entity.Question;
 import com.yupi.yuoj.model.entity.QuestionSubmit;
-import com.yupi.yuoj.model.enums.JudgeInfoMessageEnum;
 import com.yupi.yuoj.model.enums.QuestionSubmitStatusEnum;
-import com.yupi.yuoj.model.vo.QuestionSubmitVO;
 import com.yupi.yuoj.service.QuestionService;
 import com.yupi.yuoj.service.QuestionSubmitService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 import java.util.List;
-import java.util.prefs.BackingStoreException;
 import java.util.stream.Collectors;
 
 
@@ -101,7 +93,7 @@ public class JudgeServiceImpl implements JudgeService {
         judgeContext.setQuestion(question);
         judgeContext.setJudgeCaseList(judgeCaseList);
         judgeContext.setQuestionSubmit(questionSubmit);
-        JudgeStrategy judgeStrategy = new DefaultJudgeStrategyImpl();
+        //JudgeStrategy judgeStrategy = new DefaultJudgeStrategyImpl();
         JudgeInfo judgeInfo = judgeManager.doJudge(judgeContext);
         questionSubmitUpdate = new QuestionSubmit();
         questionSubmitUpdate.setId(questionSubmitId);
